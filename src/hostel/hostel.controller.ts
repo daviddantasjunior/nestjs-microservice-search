@@ -25,7 +25,7 @@ export class HostelController {
 
   @EventPattern('update-hostel')
   async updateHostel(@Payload() data: any): Promise<Hostel> {
-    const _id: string = data.id;
+    const _id: string = data._id;
     const hostel: Hostel = data.updateHostelInput;
     return await this.hostelService.updateHostel(_id, hostel);
   }

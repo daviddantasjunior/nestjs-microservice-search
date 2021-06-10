@@ -26,8 +26,9 @@ export class HostelService {
   }
 
   async updateHostel(_id: string, hostel: Hostel): Promise<Hostel> {
+    const { name, slug } = hostel;
     return await this.hostelModel
-      .findOneAndUpdate({ _id }, { $set: hostel })
+      .findOneAndUpdate({ _id }, { $set: { name, slug } }, { new: true })
       .exec();
   }
 
